@@ -2,7 +2,7 @@
     풀이:
     배열 i부터 j까지 slice, sort, k번째 수 return.
     주의:
-    배열 값이 숫자이므로 .sort(function(a,b){return a-b;}) 사용.
+    배열 값이 숫자이므로 .sort(function(a,b){return a-b}) 사용.
 */
 
 function solution(array, commands) {

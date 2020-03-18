@@ -7,7 +7,6 @@
  * cache hit일 시, 실행시간 1. cache miss일 시, 실행시간 5
  */
 
-// LRU 모르겠음 나중에 다시 공부.
 function LRU(cacheSize, cities) {
   let cache = [];
   let result = 0;

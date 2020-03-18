@@ -1,16 +1,14 @@
 /**
  * 풀이:
- * 이게 뭔 문젠지 사실 모르겠음
- * 뭔소리야..
  * 주의:
  */
 
-function solution(citations) {
-  citations.sort();
-  console.log(citations);
-  let h = citations[citations.length - 1]; // h가 왜 6이야????
-  console.log(h);
-}
+// function solution(citations) {
+//   citations.sort();
+//   console.log(citations);
+//   let h = citations[citations.length - 1]; // h가 왜 6이야????
+//   console.log(h);
+// }
 
 // 1. 틀린 풀이
 // function solution(citations) {

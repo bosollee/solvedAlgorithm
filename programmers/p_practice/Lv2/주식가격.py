@@ -15,7 +15,7 @@ def solution(prices):
         if fin==False:
             answer.append(len(prices)-i-1)
     answer.append(0);
-    # print(answer)
+    print(answer)
     return answer;
 
 # test

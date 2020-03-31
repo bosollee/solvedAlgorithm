@@ -1,32 +1,47 @@
-/**
- * 풀이:
- * 소수 찾기. (3부터 n까지)%(2부터 i까지)가 !=0 이라면, 소수 check.  
- * check 된다면 count++ 하여 return.
- * 주의:
- * 1은 소수가 아니므로 제외.
- */
-
-// 정상 동작, 시간 초과. 다른 방법 시도 예정.
-function solution(n) {
-    let count = 1;
-
-    for (let i = 3; i <= n; i++) {
-        let check = false;
-        for (let j = 2; j < i; j++) {
-            if (i % j != 0) {
-                check = true;
-            } else {
-                check = false;
-                break;
-            }
-        }
-        if (check) {
-            count++;
-        }
+// 소수 구하기: 에라토스테네스의 체
+function PrimeNumber(n) {
+  let arr = [];
+  for (let i = 2; i <= n; i++) {
+    arr[i] = i;
+  }
+  for (let i = 2; i <= n; i++) {
+    if (arr[i === 0]) continue;
+    for (let j = i + i; j <= n; j += i) {
+      arr[j] = 0;
     }
-    return count;
+  }
+  let answer = [];
+  for (let i = 0; i <= n; i++) {
+    if (arr[i] !== 0 && arr[i] !== undefined) {
+      answer.push(i);
+    }
+  }
+  return answer;
+}
+
+function useSet(n) {
+  const set = new Set();
+  for (let i = 2; i <= n; i++) {
+    set.add(i);
+  }
+  for (let i = 2; i <= n; i++) {
+    for (let j = 2 * i; j <= n; j += i) {
+      set.delete(j);
+    }
+  }
+  return set;
+}
+
+function solution(n) {
+  let count = PrimeNumber(n).length;
+  let count_ = useSet(n).size;
+
+  return console.log(count, count_);
 }
 
 // test
 solution(10);
-solution(5);
+solution(100);
+solution(1000);
+solution(10000);
+solution(100000);

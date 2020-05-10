@@ -35,7 +35,7 @@ function BFS(search, target, words, count, result) {
       clone.splice(1, i);
       queue.push({
         search: words[i],
-        words: clone
+        words: clone,
       });
     }
   }
@@ -50,7 +50,7 @@ function BFS(search, target, words, count, result) {
 
 function solution(begin, target, words) {
   let result = [];
-  if (words.findIndex(word => word === target) < 0) {
+  if (words.findIndex((word) => word === target) < 0) {
     return 0;
   }
   BFS(begin, target, words, 0, result);

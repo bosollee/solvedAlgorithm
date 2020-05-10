@@ -1,11 +1,7 @@
-/**
- * @param {2 dimensional array} clothes
- */
-
 function solution(clothes) {
   let answer = 1;
   let obj = {};
-  clothes.map(cloth => {
+  clothes.map((cloth) => {
     obj[cloth[1]] = (obj[cloth[1]] || 1) + 1;
   });
   for (var key in obj) {
@@ -18,7 +14,7 @@ function solution(clothes) {
 solution([
   ["yellow_hat", "headgear"],
   ["blue_sunglasses", "eyewear"],
-  ["green_turban", "headgear"]
+  ["green_turban", "headgear"],
 ]); // return 5
 
 solution([
@@ -28,11 +24,11 @@ solution([
   ["blue_sunges", "eyewear"],
   ["green_turban", "headgear"],
   ["green_tn", "tshirts"],
-  ["g_turban", "tshirts"]
+  ["g_turban", "tshirts"],
 ]); // return 19
 
 solution([
   ["crow_mask", "face"],
   ["blue_sunglasses", "face"],
-  ["smoky_makeup", "face"]
+  ["smoky_makeup", "face"],
 ]); // return 3

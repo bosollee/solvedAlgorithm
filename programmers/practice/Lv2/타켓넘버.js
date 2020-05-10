@@ -1,25 +1,22 @@
 /**
- * 풀이: 재귀
- * 1. 부호만 바꿔서 연산
- * 2. 만약 한번 다 돌았는데 원하는 결과값이면 answer 카운트, 반환해주기.
- * @param {array} numbers
- * @param {number} target
+ * 깊이/너비 우선 탐색(DFS/BFS)
  */
-function solution(numbers, target) {
-  var answer = 0;
 
-  function recur(idx, sum) {
+function solution(numbers, target) {
+  let answer = 0;
+
+  function calculate(idx, sum) {
     if (idx === numbers.length) {
       if (sum === target) {
         answer++;
       }
       return;
     }
-    recur(idx + 1, sum + numbers[idx]);
-    recur(idx + 1, sum - numbers[idx]);
+    // console.log("idx, sum, answer", idx, sum, answer);
+    calculate(idx + 1, sum + numbers[idx]);
+    calculate(idx + 1, sum - numbers[idx]);
   }
-
-  recur(0, 0);
+  calculate(0, 0);
   return answer;
 }
 

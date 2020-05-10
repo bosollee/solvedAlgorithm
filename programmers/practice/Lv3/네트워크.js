@@ -1,8 +1,5 @@
 /**
- * 풀이: DFS / BFS (노드 한번씩 방문, check)
- * 만약 다
- * @param {number} n
- * @param {2dimensionArray} computers
+ * 깊이/너비 우선 탐색(DFS/BFS)
  */
 
 function solution(n, computers) {
@@ -12,17 +9,22 @@ function solution(n, computers) {
   for (const computer of computers) {
     check.push(false);
   }
+
   function DFS(index) {
-    check[index] = true;
+    check[index] = true; // 방문
     for (let i = 0; i < computers.length; i++) {
       if (computers[index][i] === 1 && !check[i]) {
-        DFS(i);
+        // 간선이 있고 미방문이라면
+        DFS(i); // 재귀 호출
       }
     }
   }
+
   for (let i = 0; i < computers.length; i++) {
     if (!check[i]) {
+      // 미방문이라면
       DFS(i);
+      // 네트워크 개수 추가
       answer++;
     }
   }
@@ -33,10 +35,10 @@ function solution(n, computers) {
 solution(3, [
   [1, 1, 0],
   [1, 1, 0],
-  [0, 0, 1]
+  [0, 0, 1],
 ]); // return 2
 solution(3, [
   [1, 1, 0],
   [1, 1, 1],
-  [0, 1, 1]
+  [0, 1, 1],
 ]); // return 1
